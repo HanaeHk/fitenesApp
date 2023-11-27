@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +13,9 @@ import { AdviceComponent } from './components/advice/advice.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoachComponent } from './components/coach/coach.component';
+import { FreeProgramComponent } from './components/free-program/free-program.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +27,26 @@ import { SearchComponent } from './components/search/search.component';
     AdviceComponent,
     HeaderComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    CoachComponent,
+    FreeProgramComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [
     provideClientHydration()
+    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[
+    ReactiveFormsModule
+   
+    
+  ]
 })
 export class AppModule { }

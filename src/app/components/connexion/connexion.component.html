@@ -1,1 +1,33 @@
-<p>connexion works!</p>
+<div class="form">
+<form [formGroup]="profileForm" (click)=" onSubmit()">
+    <h2>Entre Your Personnals Informations !</h2>
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" placeholder="...." formControlName="firstName"  [class.is-invalid]="profileForm.get('firstName')?.invalid" class="form-control" >
+    <div *ngIf="(profileForm.get('firstName')?.invalid) || profileForm.get('firstName')?.dirty"></div>
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" placeholder="...." formControlName="lastName" [class.is-invalid]="profileForm.get('lastName')?.invalid" class="form-control" >
+    <div *ngIf="(profileForm.get('lastName')?.invalid) || profileForm.get('lastName')?.dirty"></div>
+    <label for="email">Email: </label>
+    <input id="email" type="text" placeholder="...." formControlName="email" [class.is-invalid]="profileForm.get('email')?.invalid" class="form-control" >
+    <div *ngIf="(profileForm.get('email')?.invalid) || profileForm.get('email')?.dirty">
+    </div>
+    <label for="numberPhone">Number Phone: </label>
+    <input id="numberPhone" type="text" placeholder="...." formControlName="numberPhone"  [class.is-invalid]="profileForm.get('numberPhone')?.invalid" class="form-control" >
+    <div *ngIf="(profileForm.get('numberPhone')?.invalid) || profileForm.get('numberPhone')?.dirty"></div>
+    <h2>Your Adresse !</h2>
+  <div formGroupName="address" class="adress">
+    <label for="street">Street: </label>
+    <input id="street" type="text" formControlName="street">
+    <label for="city">City: </label>
+    <input id="city" type="text" formControlName="city">
+    <label for="state">State: </label>
+    <input id="state" type="text" formControlName="state">
+    <label for="zip">Zip Code: </label>
+    <input id="zip" type="text" formControlName="zip">
+    <button type="submit" [disabled]="!profileForm.valid">Connexion</button>
+    <div class="sign-up">
+        <h2> Welcome to Your Rize Fitness !!! </h2>
+    </div>
+  </div>
+</form>
+</div>
